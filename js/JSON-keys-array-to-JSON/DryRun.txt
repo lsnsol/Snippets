@@ -1,0 +1,351 @@
+function call 1 :
+    data = [c, e, f], 
+    refArray = []
+    data.length = 3
+    if is true
+    check = null
+    refArray = [
+        {
+            label: c,
+            children: []   -------------- this goes to function call 2
+        }
+    ]
+
+    function call 2:
+        data = [e, f]
+        refArray = []
+        data.length = 2
+        if is true
+        check = null
+        refArray = [
+            {
+                label: c,
+                children: [
+                    {
+                        label: e,
+                        children: []  -------------- this goes to function call 3
+                    }
+                ]
+            }
+        ]
+        
+        function call 3:
+            data = [f]
+            refArray = []
+            data.length = 1
+            if is false
+            check = null
+            refArray = [
+                {
+                    label: c,
+                    children: [
+                        {
+                            label: e,
+                            children: [
+                                {
+                                    label: f,
+                                    children: []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        
+        check = {                  --------------------- back to function call 2
+            label: e,
+            children: [
+                {
+                    label: f,
+                    children: []
+                }
+            ]
+        }
+        2nd if is false
+    
+    check = {                      --------------------- back to function call 1
+        label: c,
+        children: [
+            {
+                label: e,
+                children: [
+                    {
+                        label: f,
+                        children: []
+                    }
+                ]
+            }
+        ]
+    }
+    2nd if is false
+
+
+==========================================================================================================================
+
+
+function call 4 :-
+    data = [c, e], 
+    refArray = [
+        {
+            label: c,
+            children: [
+                {
+                    label: e,
+                    children: [
+                        {
+                            label: f,
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    data.length = 2
+    if is true
+    check = {
+        label: c,
+        children: [       --------------------- this goes to function call 5
+            {
+                label: e,
+                children: [
+                    {
+                        label: f,
+                        children: []
+                    }
+                ]
+            }
+        ]
+    }
+
+    function call 5:
+        data = [e]
+        refArray = [
+            {
+                label: e,
+                children: [
+                    {
+                        label: f,
+                        children: []
+                    }
+                ]
+            }
+        ]
+        data.length = 1
+        if is false
+        2nd check = {
+            label: e,
+            children: [
+                {
+                    label: f,
+                    children: []
+                }
+            ]
+        }
+        2nd if is false
+    
+    check = {          ---------------------------back to function call 4
+        label: c,
+        children: [
+            {
+                label: e,
+                children: [
+                    {
+                        label: f,
+                        children: []
+                    }
+                ]
+            }
+        ]
+    }
+    2nd if is false
+
+
+==================================================================================================================================
+
+
+function call 6 :-
+    data = [a, b], 
+    refArray = [
+        {
+            label: c,
+            children: [
+                {
+                    label: e,
+                    children: [
+                        {
+                            label: f,
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    data.length = 2
+    if is true
+    check = null
+    refArray = [
+        {
+            label: c,
+            children: [
+                {
+                    label: e,
+                    children: [
+                        {
+                            label: f,
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            label: a,
+            children: []  ---------------------this goes to function call 7
+        }
+    ]
+
+    function call 7:
+        data = [b]
+        refArray = []
+        data.length = 1
+        if is false
+        2nd check = null
+        2nd if is true
+        refArray = [
+            {
+                label: c,
+                children: [
+                    {
+                        label: e,
+                        children: [
+                            {
+                                label: f,
+                                children: []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                label: a,
+                children: [
+                    {
+                        label: b,
+                        children: []
+                    }
+                ]
+            }
+        ]
+
+    check = {                    ---------------- back to function call 6
+        label: a,
+        children: [
+            {
+                label: b,
+                children: []
+            }
+        ]
+    }
+    2nd if is false
+
+
+==================================================================================================================================
+
+
+function call 8 :
+    data = [c, d], 
+    refArray = [
+        {
+            label: c,
+            children: [
+                {
+                    label: e,
+                    children: [
+                        {
+                            label: f,
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            label: a,
+            children: [
+                {
+                    label: b,
+                    children: []
+                }
+            ]
+        }
+    ]
+    data.length = 2
+    if is true
+    check = {
+        label: c,
+        children: [   --------------this goes to function call 9
+            {
+                label: e,
+                children: [
+                    {
+                        label: f,
+                        children: []
+                    }
+                ]
+            }
+        ]
+    }
+
+    function call 9:
+        data = [d]
+        refArray = [
+            {
+                label: e,
+                children: [
+                    {
+                        label: f,
+                        children: []
+                    }
+                ]
+            }
+        ] 
+        data.length = 1
+        if is false
+        2nd check = null
+        2nd if is true
+        refArray = [
+            {
+                label: e,
+                children: [
+                    {
+                        label: f,
+                        children: []
+                    }
+                ]
+            }, 
+            {
+                label: f,
+                children: []
+            }
+        ]
+    
+    check = {                    ---------------- back to function call 8
+        label: c,
+        children: [
+            {
+                label: e,
+                children: [
+                    {
+                        label: f,
+                        children: []
+                    }
+                ]
+            }
+        ]
+    }
+    2nd if is false
+
+
+==================================================================================================================================
