@@ -7,8 +7,8 @@ fileDataArray = fileData.split('\n')
 monthlyTotal = []
 totalsum = 0
 yeartotal = 0
-month = int(a.split('\n')[0].split(':')[0].split('/')[1])
-year = int(a.split('\n')[0].split(':')[0].split('/')[2])
+month = int(fileData.split('\n')[0].split(':')[0].split('/')[1])
+year = int(fileData.split('\n')[0].split(':')[0].split('/')[2])
 for i in fileDataArray:
     summ = 0
     if(i.count('/') < 2):
