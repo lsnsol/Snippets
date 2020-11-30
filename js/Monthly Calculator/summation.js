@@ -47,8 +47,8 @@ monthlyTotal.push('\n------------------------ ' + formated + ' : ' + formated + 
 
 newMonth = []
 end = 31
-month = (month < 12) ? month + 1 : 1
 year = (month == 12) ? year + 1 : year
+month = (month < 12) ? month + 1 : 1
 
 if ([1, 3, 5, 7, 8, 10, 12].includes(month))
     end = 32

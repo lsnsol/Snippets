@@ -41,8 +41,9 @@ monthlyTotal.append('\n------------------------ ' + formated +
 
 newMonth = []
 end = 31
-month = month + 1 if month < 12 else 1
 year = year + 1 if month == 12 else year
+month = month + 1 if month < 12 else 1
+
 if(month in [1, 3, 5, 7, 8, 10, 12]):
     end = 32
 elif(month == 2):
