@@ -1,3 +1,6 @@
-py/data.txt
-py/m.total.txt
-py/nm.txt
+**/*data.txt
+**/*m.total.txt
+**/*nm.txt
+**/*node_modules
+**/*package-lock.json
+

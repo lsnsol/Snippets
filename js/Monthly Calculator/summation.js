@@ -25,12 +25,11 @@ for (let i of fileDataArray) {
         monthlyTotal.push(i)
         continue
     }
-    // console.log(i)
-    loc = i.split(' : ')[1]
+    let loc = i.split(' : ')[1]
     if ((loc.split(' + ')).length > 1 && loc.split(' + ')[0] != '') {
         for (let j of loc.split(' + '))
             sum = sum + parseFloat(j.replace(',', ''))
-        formated = (sum + '').replace('.00', '')
+        let formated = (sum + '').replace('.00', '')
         monthlyTotal.push(i + ' : ' + formated)
         totalsum = totalsum + sum
     } else if (loc.split(' + ')[0] != '') {
@@ -39,14 +38,14 @@ for (let i of fileDataArray) {
     } else
         monthlyTotal.push(i)
 
-    yeartotal = (yeartotal + totalsum + '').replace('.00', '')
+    yeartotal = yeartotal + totalsum
 }
 
-formated = (totalsum + '').replace('.00', '')
+let formated = (totalsum + '').replace('.00', '')
 monthlyTotal.push('\n------------------------ ' + formated + ' : ' + formated + ' -------------------------\n')
 
-newMonth = []
-end = 31
+let newMonth = []
+let end = 31
 year = (month == 12) ? year + 1 : year
 month = (month < 12) ? month + 1 : 1
 
@@ -56,9 +55,12 @@ else if (month == 2)
     end = 29
 for (let i = 1; i < end; i++)
     newMonth.push(i + '/' + month + '/' + year + ' : ')
-    
+
 newMonth.push('\n------------------------  :  -------------------------')
 
 console.log(totalsum)
+// console.log(newMonth.join('\n'));
+// console.log(monthlyTotal.join('\n'));
+
 fse.writeFileSync('m.total.txt', monthlyTotal.join('\n'))
 fse.writeFileSync('nm.txt', newMonth.join('\n'))
